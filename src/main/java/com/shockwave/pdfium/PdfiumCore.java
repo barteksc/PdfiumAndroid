@@ -91,7 +91,9 @@ public class PdfiumCore {
     private native Point nativePageCoordsToDevice(long pagePtr, int startX, int startY, int sizeX,
                                                   int sizeY, int rotate, double pageX, double pageY);
 
-
+    private native PointF nativeDeviceCoordsToPage(long pagePtr, int startX, int startY, int sizeX,
+                                                   int sizeY, int rotate, int deviceX, int deviceY);
+    
     /* synchronize native methods */
     private static final Object lock = new Object();
     private static Field mFdField = null;
