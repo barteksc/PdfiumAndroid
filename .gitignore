@@ -8,3 +8,4 @@ src/main/obj
 .DS_Store
 /build
 /captures
+.externalNativeBuild
