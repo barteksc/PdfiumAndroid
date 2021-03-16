@@ -23,7 +23,7 @@ static Mutex sLibraryLock;
 
 static int sLibraryReferenceCount = 0;
 
-static void initLibraryIfNeed(){
+static void initLibrary_IfNeed(){
     Mutex::Autolock lock(sLibraryLock);
     if(sLibraryReferenceCount == 0){
         LOGD("Init FPDF library");
@@ -55,7 +55,7 @@ class DocumentFile {
     FPDF_DOCUMENT pdfDocument = NULL;
     size_t fileSize;
 
-    DocumentFile() { initLibraryIfNeed(); }
+    DocumentFile() { initLibrary_IfNeed(); }
     ~DocumentFile();
 };
 DocumentFile::~DocumentFile(){
