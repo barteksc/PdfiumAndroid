@@ -7,39 +7,38 @@
 #ifndef PUBLIC_FPDF_FLATTEN_H_
 #define PUBLIC_FPDF_FLATTEN_H_
 
+// NOLINTNEXTLINE(build/include)
 #include "fpdfview.h"
 
-// Result codes.
-#define FLATTEN_FAIL 0         // Flatten operation failed.
-#define FLATTEN_SUCCESS 1      // Flatten operation succeed.
-#define FLATTEN_NOTHINGTODO 2  // There is nothing to be flattened.
+// Flatten operation failed.
+#define FLATTEN_FAIL 0
+// Flatten operation succeed.
+#define FLATTEN_SUCCESS 1
+// Nothing to be flattened.
+#define FLATTEN_NOTHINGTODO 2
 
-// Flags.
+// Flatten for normal display.
 #define FLAT_NORMALDISPLAY 0
+// Flatten for print.
 #define FLAT_PRINT 1
 
 #ifdef __cplusplus
 extern "C" {
-#endif
+#endif  // __cplusplus
 
-// Function: FPDFPage_Flatten
-//          Make annotations and form fields become part of the page contents
-//          itself.
-// Parameters:
-//          page  - Handle to the page, as returned by FPDF_LoadPage().
-//          nFlag - Intended use of the flattened result: 0 for normal display,
-//          1 for printing.
-// Return value:
-//          Either FLATTEN_FAIL, FLATTEN_SUCCESS, or FLATTEN_NOTHINGTODO (see
-//          above).
-// Comments:
-//          Currently, all failures return FLATTEN_FAIL, with no indication for
-//          the reason
-//          for the failure.
-DLLEXPORT int STDCALL FPDFPage_Flatten(FPDF_PAGE page, int nFlag);
+// Flatten annotations and form fields into the page contents.
+//
+//   page  - handle to the page.
+//   nFlag - One of the |FLAT_*| values denoting the page usage.
+//
+// Returns one of the |FLATTEN_*| values.
+//
+// Currently, all failures return |FLATTEN_FAIL| with no indication of the
+// cause.
+FPDF_EXPORT int FPDF_CALLCONV FPDFPage_Flatten(FPDF_PAGE page, int nFlag);
 
 #ifdef __cplusplus
-}
-#endif
+}  // extern "C"
+#endif  // __cplusplus
 
 #endif  // PUBLIC_FPDF_FLATTEN_H_

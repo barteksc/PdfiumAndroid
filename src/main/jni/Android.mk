@@ -6,7 +6,7 @@ LOCAL_MODULE := aospPdfium
 
 ARCH_PATH = $(TARGET_ARCH_ABI)
 
-LOCAL_SRC_FILES := $(LOCAL_PATH)/lib/$(ARCH_PATH)/libmodpdfium.so
+LOCAL_SRC_FILES := $(LOCAL_PATH)/lib/$(ARCH_PATH)/libpdfium.cr.so
 
 include $(PREBUILT_SHARED_LIBRARY)
 
@@ -14,23 +14,31 @@ include $(PREBUILT_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libmodc++_shared
 
-LOCAL_SRC_FILES := $(LOCAL_PATH)/lib/$(ARCH_PATH)/libc++_shared.so
+LOCAL_SRC_FILES := $(LOCAL_PATH)/lib/$(ARCH_PATH)/libc++.cr.so
 
 include $(PREBUILT_SHARED_LIBRARY)
 
-#libmodft2
+#libchrome_zlib
 include $(CLEAR_VARS)
-LOCAL_MODULE := libmodft2
+LOCAL_MODULE := libchrome_zlib
 
-LOCAL_SRC_FILES := $(LOCAL_PATH)/lib/$(ARCH_PATH)/libmodft2.so
+LOCAL_SRC_FILES := $(LOCAL_PATH)/lib/$(ARCH_PATH)/libchrome_zlib.cr.so
 
 include $(PREBUILT_SHARED_LIBRARY)
 
-#libmodpng
+#libicui18n
 include $(CLEAR_VARS)
-LOCAL_MODULE := libmodpng
+LOCAL_MODULE := libicui18n
 
-LOCAL_SRC_FILES := $(LOCAL_PATH)/lib/$(ARCH_PATH)/libmodpng.so
+LOCAL_SRC_FILES := $(LOCAL_PATH)/lib/$(ARCH_PATH)/libicui18n.cr.so
+
+include $(PREBUILT_SHARED_LIBRARY)
+
+#libicuuc
+include $(CLEAR_VARS)
+LOCAL_MODULE := libicuuc
+
+LOCAL_SRC_FILES := $(LOCAL_PATH)/lib/$(ARCH_PATH)/libicuuc.cr.so
 
 include $(PREBUILT_SHARED_LIBRARY)
 
